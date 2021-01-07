@@ -1,4 +1,4 @@
-# CDR_Stock_Price_Prediction_Using_LSTM_Deep_Learning_Network
+# CDR Stock Price Prediction Using LSTM Deep Learning Network
 
 A prediction of stock prices using neural network. Data for training comes from a single company and the results are very close to naive prediction. 
 
