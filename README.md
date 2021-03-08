@@ -1,12 +1,20 @@
-# CDR Stock Price Prediction Using LSTM Deep Learning Network
+# Stock Price Prediction Using LSTM Deep Learning Network
 
-A prediction of stock prices using neural network. Data for training comes from a single company and the results are very close to naive prediction. 
+A prediction of stock prices using neural network.
 
-Features of the neural network are:
-* Opening price
-* Closing price
-* Highest price of the day
-* Lowest price of the day
-* Volume
+## CDR_Stock_Price_Prediction_Using_LSTM_Deep_Learning_Network
 
-Considering small amount of training data and simple input features, the results are better than expected.
+  Learning based on single company history. Comparision of using basic informations:
+  * Opening price
+  * Closing price
+  * Highest price of the day
+  * Lowest price of the day
+  * Volume
+
+  And technical indicators.
+  
+## WiG20_based_stock_prediction
+  Learning based on 20 companies' from Warsow Stock Exchange WiG20 index.
+  
+## Technical_indicators_tuning
+  Script testing which technical indicators work best for prediction.
