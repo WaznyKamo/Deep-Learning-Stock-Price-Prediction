@@ -14,42 +14,33 @@ stock_idx = [50, 2068, 458, 478, 153, 1878, 342, 351, 381, 276,
 stock_data_list = []
 
 quarters = []
+full_statements = pd.DataFrame(columns=['Stock', 'Date', 'Statement'])
 
 
-def get_info(soup):
+def get_info(soup, stock_name):
+    statements = pd.DataFrame(columns=['Stock', 'Date', 'Statement'])
     dates = []
-    table_soup = soup.find('tbody')
+    table_soup = soup.find('div', attrs={'class': 'table-text'}).find('tbody')
     for row_soup in table_soup.find_all('tr'):
         if row_soup.find('td', attrs={'class': 'title'}):
-            date = 
-        dates.append(date_soup.text.split()[0])
-    dates.append(soup.find('th', attrs={"class": "thq h newest"}).text.split()[0])
-    return dates
-
-
-def get_indicator(soup, indicator_tag):
-    indicator_raw = soup.find('tr', attrs={"data-field": indicator_tag})
-    indicators = []
-    if indicator_raw:
-        for indicator_soup in indicator_raw.find_all("td", attrs={"class": "h"}):
-            if indicator_soup.find("span", attrs={"class": "pv"}):
-                indicators.append(indicator_soup.find("span", attrs={"class": "pv"}).text)
-            else:
-                indicators.append(None)
-    else:
-        indicators = [None for x in range(len(get_quarters(soup)))]
-    return indicators
+            date = row_soup.find('td', attrs={'class': 'title'}).text
+        else:
+            statement = row_soup.find('a', attrs={'target': '_blank'}).text
+            # print(str(date) + ': ' + statement + ', ' + stock_name)
+            statements = statements.append({'Stock': stock_name, 'Date': date, 'Statement': statement}, ignore_index=True)
+    return statements
 
 
 for stock_number in range(len(stock_list)):
     for year in range(2003, 2022):
-        print('Loading data: ' + stock_list[stock_number])
+        print('Loading data: ' + stock_list[stock_number] + ' (', + str(year) + ')')
         stock_url = base_url + str(stock_idx[stock_number]) + ',' + str(year) + ',0,0,1'
-        print(stock_url)
 
         response_wr = requests.get(stock_url)
-        soup = BeautifulSoup(response_wr.text, features='html.parser')
-        yearly_statements = get_info(soup)
+        soup_single_site = BeautifulSoup(response_wr.text, features='html.parser')
+        yearly_statements = get_info(soup_single_site, stock_list[stock_number])
+        full_statements = full_statements.append(yearly_statements)
+
 #         # Market value indicators
 #         WK = get_indicator(soup_wr, 'WK')                      # book value
 #         C_WK = get_indicator(soup_wr, 'CWK')                   # price/book value
@@ -135,6 +126,6 @@ for stock_number in range(len(stock_list)):
 #
 # final_dataframe = pd.concat(stock_data_list)
 #
-# final_dataframe.to_csv('Data/WiG20_fundamental_indicators.csv')
+full_statements.to_csv('Testing_data/WiG20_fundamental_indicators_dates.csv')
 # print('File created')
 
