@@ -126,30 +126,10 @@ for stock_index in range(len(stock_list)):
     stock_data['Cykl operacyjny'] = get_indicator(soup_aktywnosc, 'COP')
     stock_data['Cykl konwersji gotówki'] = get_indicator(soup_aktywnosc, 'CSP')
 
-    stock_data_list.append((stock_data))
+    stock_data_list.append(stock_data)
 
 final_dataframe = pd.concat(stock_data_list)
 
-final_dataframe.to_csv('Data/WiG20_fundamental_indicators.csv')
+final_dataframe.to_csv('Testing_data/WiG20_fundamental_indicators.csv', index=False)
 print('File created')
 
-    # links_with_text = ['http:' + a['href'] for a in soup.find('span') if a.text]  # pobranie wszystkich adresów i edycja ich do czytalnej formy
-#
-# products_list = []
-# products_file = open('products.csv', 'w', newline='', encoding='utf-8')
-# products_writer = csv.writer(products_file, delimiter=';')
-#
-# products_writer.writerow(['ID', 'Nazwa', 'Marka', 'Model', 'Kategoria', 'Opis', 'Cena', 'URL_zdjecia'])
-# sizes_writer.writerow(['Product ID', 'Attribute (Name:Position)', 'Value', 'Quantity'])
-#
-#
-# product_id = import_data(polbuty_meskie_urls, 'Męskie@Półbuty', product_id)
-# product_id = import_data(sportowe_meskie_urls, 'Męskie@Sportowe', product_id)
-# product_id = import_data(lacze_meskie_urls, 'Męskie@Klapki', product_id)
-# product_id = import_data(polbuty_damskie_urls, 'Damskie@Półbuty', product_id)
-# product_id = import_data(sportowe_damskie_urls, 'Damskie@Sportowe', product_id)
-# product_id = import_data(lacze_damskie_urls, 'Damskie@Klapki', product_id)
-#
-#
-# products_file.close()
-# sizes_file.close()

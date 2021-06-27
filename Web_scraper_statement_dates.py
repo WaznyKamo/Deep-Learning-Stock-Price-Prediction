@@ -38,5 +38,6 @@ for stock_number in range(len(stock_list)):
         yearly_statements = get_info(soup_single_site, stock_list[stock_number])
         full_statements = full_statements.append(yearly_statements)
 
-full_statements.to_csv('Testing_data/WiG20_fundamental_indicators_dates.csv')
+
+full_statements.to_csv('Testing_data/WiG20_fundamental_indicators_dates.csv', index=False)
 
