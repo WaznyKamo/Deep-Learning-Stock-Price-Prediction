@@ -2,12 +2,34 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 
-# full example url http://infostrefa.com/infostrefa/pl/raporty/espi/firmy/50,2018,0,0,1
+# full example url https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-acp,wId,103,tab,raporty
+
+links = ['https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-alr,wId,8679,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-ale,wId,33382,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-acp,wId,103,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-ccc,wId,2947,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-cdr,wId,1815,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-cps,wId,2807,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-dnp,wId,24814,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-jsw,wId,3022,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-kgh,wId,55,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-lpp,wId,697,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-lts,wId,705,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-mrc,wId,17523,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-peo,wId,83,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-pge,wId,4096,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-pgn,wId,984,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-pkn,wId,87,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-pko,wId,1062,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-pzu,wId,700,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-san,wId,19431,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-tpe,wId,4918,tab,raporty']
+
 url = 'http://infostrefa.com/infostrefa/pl/raporty/espi/firmy/50,2018,0,0,1'
 base_url = 'http://infostrefa.com/infostrefa/pl/raporty/espi/firmy/'
 
 stock_list = ['ACP', 'ALE', 'CCC', 'CDR', 'CPS', 'DNP', 'JSW', 'KGHM', 'LPP', 'LTS',
-              'MRC', 'OPL', 'PEO', 'PGE', 'PGN', 'PKN', 'PKO', 'PZU', 'SPL', 'TPE']
+              'MRC', 'OPL', 'PEO', 'PGE', 'PGN', 'PKN', 'PKO', 'PZU', 'SAN', 'TPE']
 stock_idx = [50, 2068, 458, 478, 153, 1878, 342, 351, 381, 276,
              1592, 640, 77, 505, 507, 513, 77, 561, 118, 636]
 stock_data_list = []
@@ -38,6 +60,4 @@ for stock_number in range(len(stock_list)):
         yearly_statements = get_info(soup_single_site, stock_list[stock_number])
         full_statements = full_statements.append(yearly_statements)
 
-
 full_statements.to_csv('Testing_data/WiG20_fundamental_indicators_dates.csv', index=False)
-
