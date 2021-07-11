@@ -6,6 +6,7 @@ import pandas as pd
 
 links = ['https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-acp,wId,103,tab,raporty',
          'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-ale,wId,33382,tab,raporty',
+         'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-alr,wId,8679,tab,raporty',
          'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-ccc,wId,2947,tab,raporty',
          'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-cdr,wId,1815,tab,raporty',
          'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-cps,wId,2807,tab,raporty',
@@ -26,7 +27,7 @@ links = ['https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-acp,wId,10
          'https://biznes.interia.pl/gieldy/notowania-gpw/profil-akcji-tpe,wId,4918,tab,raporty']
 
 
-stock_list = ['ACP', 'ALE', 'CCC', 'CDR', 'CPS', 'DNP', 'JSW', 'KGHM', 'LPP', 'LTS',
+stock_list = ['ACP', 'ALE', 'ALR', 'CCC', 'CDR', 'CPS', 'DNP', 'JSW', 'KGHM', 'LPP', 'LTS',
               'MRC', 'OPL', 'PEO', 'PGE', 'PGN', 'PKN', 'PKO', 'PZU', 'SAN', 'TPE']
 
 full_statements = pd.DataFrame(columns=['Spółka', 'Data', 'Tytuł'])

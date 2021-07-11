@@ -10,7 +10,7 @@ url_przeplywy_pieniezne = 'https://www.biznesradar.pl/wskazniki-przeplywow-pieni
 url_zadluzenie = 'https://www.biznesradar.pl/wskazniki-zadluzenia/'
 url_plynnosc = 'https://www.biznesradar.pl/wskazniki-plynnosci/'
 url_aktywnosc = 'https://www.biznesradar.pl/wskazniki-aktywnosci/'
-stock_list = ['ACP', 'ALE', 'CCC', 'CDR', 'CPS', 'DNP', 'JSW', 'KGHM', 'LPP', 'LTS',
+stock_list = ['ACP', 'ALE', 'ALR', 'CCC', 'CDR', 'CPS', 'DNP', 'JSW', 'KGHM', 'LPP', 'LTS',
               'MRC', 'OPL', 'PEO', 'PGE', 'PGN', 'PKN', 'PKO', 'PZU', 'SPL', 'TPE']
 stock_data_list = []
 
