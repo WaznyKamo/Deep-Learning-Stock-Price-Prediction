@@ -28,6 +28,12 @@ Tested parameters were:
 
 ## Results and predictions evaluation
 
-Most prediction algorithms found on the internet do not have any way of evaluating the usability of the model. I have introduced 
+Most prediction algorithms found on the internet do not have any way of evaluating the usability of the model. In order to see if the predictions have any added value for a investor, they were compared with Naive predictions - assuming that the prices will not change in a following sessions. Error lower than that will at least induce, that the direction of price change is correct. Lastly the predictions were compared with another simple method - linear regression.
+
+Neural Network architecture that performed the best:
+ * Input layer
+ * LSTM with 64 neurons
+ * Dense with 100 neurons
+ * Dense with 5 output neurons (predicting opening, closing, highest, lowest prices and volume of the next session)
 
 
