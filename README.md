@@ -45,7 +45,7 @@ As game premiere dates reduce greatly usability of this model to only days aroun
 
 For better comparision of Neural Network and Naive prediction, measure of information gain was introduced. The greater the information gain, the better did Neural Network perform. Negative value means that naive predictions performed better.
 
-
+Information gain = (MAE_Naive - MAE_NN)/MAE_Naive * 100%
 
 
 | Number of forcasted session  | Information gain of NN (%)  |                       |                       |                        |          |
